@@ -1,0 +1,71 @@
+<div class="header">
+  <h3>Put the question and options here:</h3>
+  <a href="/dashboard">Cancel</a>
+</div>
+<div class="surveyForm">
+  <div class="validations">
+    <p *ngIf='!name.valid'>Name is required</p>
+    <p *ngIf='!question.valid'>Question is required and must be 8 characters long!</p>
+    <p *ngIf='!theOption1.valid'>Option 1 is required and must be 3 characters long!</p>
+    <p *ngIf='!theOption2.valid'>Option 2 is required and must be 3 characters long!</p>
+    <p *ngIf='!theOption3.valid'>Option 3 is required and must be 3 characters long!</p>
+    <p *ngIf='!theOption4.valid'>Option 4 is required and must be 3 characters long!</p>
+  </div>
+  <form (submit) = 'onSubmit()'
+  #formData = 'ngForm'>
+    <p>
+      Name:
+      <input type="text"
+      name="name"
+      required
+      [(ngModel)] = 'survey.name'
+      #name = 'ngModel'>
+    </p>
+    <p>
+      Question:
+      <input type="text"
+      name="question"
+      required
+      minlength="8"
+      [(ngModel)] = 'survey.question'
+      #question = 'ngModel'>
+    </p>
+    <p>
+      Option 1:
+      <input type="text"
+      name="theOption1"
+      required
+      minlength="3"
+      [(ngModel)] = 'option1.theOption'
+      #theOption1 = 'ngModel'>
+    </p>
+    <p>
+      Option 2:
+      <input type="text"
+      name="theOption2"
+      required
+      minlength="3"
+      [(ngModel)] = 'option2.theOption'
+      #theOption2 = 'ngModel'>
+    </p>
+    <p>
+      Option 3:
+      <input type="text"
+      name="theOption3"
+      required
+      minlength="3"
+      [(ngModel)] = 'option3.theOption'
+      #theOption3 = 'ngModel'>
+    </p>
+    <p>
+      Option 4:
+      <input type="text"
+      name="theOption4"
+      required
+      minlength="3"
+      [(ngModel)] = 'option4.theOption'
+      #theOption4 = 'ngModel'>
+    </p>
+    <input type="submit" value="Create Poll" [disabled]='!formData.valid'>
+  </form>
+</div>

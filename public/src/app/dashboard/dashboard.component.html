@@ -1,0 +1,27 @@
+<div class="main">
+  <h1>Current Polls:</h1>
+  <div class="links">
+    <a href='/create'>Create a New Poll</a>
+  </div>
+  <div class="surveys">
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Survey Question</th>
+          <th>Date Posted</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let survey of surveys'>
+          <td>{{survey.name}}</td>
+          <td><a href='/poll/{{survey._id}}'>{{survey.question}}</a></td>
+          <td>{{survey.createdAt | date:'yMMMMd'}}</td>
+          <td><button (click)='delete(survey._id)'>Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

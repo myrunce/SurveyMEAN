@@ -1,0 +1,24 @@
+<div class="header">
+  <h3>{{survey.question}}</h3>
+  <a href="/dashboard">Go to Polls</a>
+  <p>Click the Vote Button to choose</p>
+</div>
+<div class="polls">
+  <table>
+    <thead>
+      <tr>
+        <th>Option</th>
+        <th>Current Count of Votes</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let option of survey.options'>
+        <td>{{option.theOption}}</td>
+        <td>{{option.votes}}</td>
+        <td><button (click)='vote(option._id)'>Vote</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
